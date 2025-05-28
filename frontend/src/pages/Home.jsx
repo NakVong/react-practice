@@ -1,4 +1,5 @@
 import MovieCard from "../components/MovieCard"
+import NavBar from "../components/NavBar"
 import { useState } from "react"
 
 function Home() {
@@ -29,7 +30,7 @@ function Home() {
             </input>
             <button type="submit" className="search-btn">Search</button>
         </form>
-        
+
         <div className="movie-grid">
             {movies.map((movie) => movie.title.toLowerCase().startsWith(searchQuery) && 
                 (<MovieCard movie={movie} key={movie.id}></MovieCard>))
