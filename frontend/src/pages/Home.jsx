@@ -45,12 +45,17 @@ function Home() {
             </input>
             <button type="submit" className="search-btn">Search</button>
         </form>
-        
-        <div className="movie-grid">
-            {movies.map((movie) => movie.title.toLowerCase().startsWith(searchQuery) && 
-                (<MovieCard movie={movie} key={movie.id}></MovieCard>))
-            }
-        </div>
+
+        {error && <div className="error-message">{error}</div>}
+
+        {loading ? 
+            (<div className="loading">Loading...</div>) : 
+            (<div className="movie-grid">
+                {movies.map((movie) => movie.title.toLowerCase().startsWith(searchQuery) && 
+                    (<MovieCard movie={movie} key={movie.id}></MovieCard>))
+                }
+            </div>)
+        }
     </div>
 }
 
